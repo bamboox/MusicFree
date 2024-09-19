@@ -50,8 +50,15 @@ jobs:
         run: npm ci
       - name: Get Version
         run: node -p -e '`VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
-      - name: Build
-        run: | 
-          cd ./android
-          ./gradlew assembleRelease
+      - name: Build Project
+        run: npm run start  # 根据你的项目修改
+      # - name: Save Artifacts
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: nodejs-artifacts
+      #     path: path/to/output  # 替换为你的输出目录
+      # - name: Build
+      #   run: | 
+      #     cd ./android
+      #     ./gradlew assembleRelease
       
